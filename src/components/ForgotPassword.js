@@ -4,33 +4,24 @@ import { Link, useHistory } from "react-router-dom";
 
 import { useAuth } from "../contexts/AuthContext";
 
-export default function Signup() {
+export default function ForgotPassword() {
   const emailRef = useRef();
-  const senhaRef = useRef();
-  const confirmarSenhaRef = useRef();
-  const { signup } = useAuth();
+  const { resetPassword } = useAuth();
   const [error, setError] = useState("");
+  const [menssage, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (senhaRef.current.value !== confirmarSenhaRef.current.value) {
-      return setError("Senhas diferentes");
-    }
-
-    if (senhaRef.current.value.length < 6) {
-      return setError("Senha muito curta tem que ter mais de 6 caracteres");
-    }
-
     try {
+      setMessage("");
       setError("");
       setLoading(true);
-      await signup(emailRef.current.value, senhaRef.current.value);
-      history.push("/");
+      await resetPassword(emailRef.current.value);
+      setMessage("Verifique a sua caixa de email para mais instruções");
     } catch {
-      setError("Error em criar uma conta verifique sua internet");
+      setError("Erro em resetar a senha");
     }
     setLoading(false);
   }
@@ -44,33 +35,25 @@ export default function Signup() {
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Cadastrar</h2>
+              <h2 className="text-center mb-4">Redefinir senha</h2>
               {error && <Alert variant="danger">{error}</Alert>}
+              {menssage && <Alert variant="success">{menssage}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
-                <Form.Group id="senha">
-                  <Form.Label>Senha</Form.Label>
-                  <Form.Control type="password" ref={senhaRef} required />
-                </Form.Group>
-                <Form.Group id="confirmar-senha">
-                  <Form.Label>Confirmar senha</Form.Label>
-                  <Form.Control
-                    type="password"
-                    ref={confirmarSenhaRef}
-                    required
-                  />
-                </Form.Group>
                 <Button disabled={loading} className="w-100" type="submit">
-                  Cadastrar
+                  Redefinir senha
                 </Button>
               </Form>
+              <div className="w-100 text-center mt-3">
+                <Link to="/login">Retornar para o login</Link>
+              </div>
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-            Você já esta cadastrado? <Link to="login">Login</Link>
+            Não tem cadastro? <Link to="signup">Cadastrar</Link>
           </div>
         </div>
       </Container>
