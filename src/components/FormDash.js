@@ -52,7 +52,7 @@ export default function FormDash({ currentUser }) {
     <>
       <Card>
         <Card.Body>
-          <h2>Cadastrar na Pabela</h2>
+          <h2>Cadastrar na Tabela</h2>
           <Form onSubmit={handlesubmit}>
             <Row>
               <Col>
@@ -118,6 +118,7 @@ export default function FormDash({ currentUser }) {
                   <Form.Label>Cidade</Form.Label>
                   <Form.Control
                     type="text"
+                    required
                     value={cidade}
                     onChange={(e) => {
                       setCidade(e.target.value);

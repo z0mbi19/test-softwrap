@@ -82,7 +82,7 @@ export default function UpdateProfile() {
                     placeholder="Deixe em branco se não quiser alterar a senha"
                   />
                 </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">
+                <Button className="w-100" type="submit">
                   Atualizar
                 </Button>
               </Form>

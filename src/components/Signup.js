@@ -30,7 +30,7 @@ export default function Signup() {
       await signup(emailRef.current.value, senhaRef.current.value);
       history.push("/");
     } catch {
-      setError("Error em criar uma conta verifique sua internet");
+      setError("Error em criar uma conta verifique o seu email");
     }
     setLoading(false);
   }
