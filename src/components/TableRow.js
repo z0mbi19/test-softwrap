@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Button } from "bootstrap";
-import React, { useRef, useState } from "react";
-import { Form } from "react-bootstrap";
+import React, { useState } from "react";
 import ReactInputMask from "react-input-mask";
 import { toast } from "react-toastify";
 
@@ -27,10 +25,16 @@ export default function TableRow({ data }) {
       estado: estado,
     };
 
+    if (cpf.split("_").length > 1) {
+      return toast.warning("Cpf incompleto ");
+    }
+
     try {
       await db.update(update);
       toast.success("🎉 Alterado 🖋");
-    } catch {}
+    } catch {
+      toast.warn("Varifique sua internet");
+    }
   };
 
   const onDelete = async () => {
@@ -39,9 +43,9 @@ export default function TableRow({ data }) {
     try {
       await db.remove();
       toast.success("Apagado 💣 ");
-    } catch {}
-
-    console.log(data.id);
+    } catch {
+      toast.warn("Varifique sua internet");
+    }
   };
 
   return (
@@ -75,7 +79,8 @@ export default function TableRow({ data }) {
         />
       </td>
       <td>
-        <input
+        <ReactInputMask
+          mask="999.999.999-99"
           className="form-control"
           value={cpf}
           onChange={(e) => {

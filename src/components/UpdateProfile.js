@@ -54,7 +54,7 @@ export default function UpdateProfile() {
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Atualizar usuario</h2>
+              <h2 className="text-center mb-4">Atualizar Usuário</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
@@ -71,7 +71,7 @@ export default function UpdateProfile() {
                   <Form.Control
                     type="password"
                     ref={senhaRef}
-                    placeholder="Deixe em branco de não quiser alterar a senha"
+                    placeholder="Deixe em branco se não quiser alterar a senha"
                   />
                 </Form.Group>
                 <Form.Group id="confirmar-senha">
@@ -79,7 +79,7 @@ export default function UpdateProfile() {
                   <Form.Control
                     type="password"
                     ref={confirmarSenhaRef}
-                    placeholder="Deixe em branco de não quiser alterar a senha"
+                    placeholder="Deixe em branco se não quiser alterar a senha"
                   />
                 </Form.Group>
                 <Button disabled={loading} className="w-100" type="submit">
