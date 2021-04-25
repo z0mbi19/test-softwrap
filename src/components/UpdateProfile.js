@@ -22,15 +22,14 @@ export default function UpdateProfile() {
       return setError("Senhas diferentes");
     }
 
-    if (senhaRef.current.value.length < 6) {
-      return setError("Senha muito curta tem que ter mais de 6 caracteres");
-    }
-
     const promises = [];
     if (emailRef.current.value !== currentUser.email) {
       promises.push(updateEmail(emailRef.current.value));
     }
     if (senhaRef.current.value) {
+      if (senhaRef.current.value.length < 6) {
+        return setError("Senha muito curta tem que ter mais de 6 caracteres");
+      }
       promises.push(updatePassword(senhaRef.current.value));
     }
 
