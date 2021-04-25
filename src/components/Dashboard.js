@@ -60,7 +60,7 @@ export default function Dashboard() {
   const createDados = async (dados) => {
     try {
       await firebase.database().ref("/Tabela").push(dados);
-      toast.success("Criado com sucesso");
+      toast.success("🎉 Criado com sucesso 😎");
     } catch {}
   };
 
@@ -70,7 +70,7 @@ export default function Dashboard() {
     console.log(cpf.split("_"));
 
     if (cpf.split("_").length > 1) {
-      return toast.warning("Cpf incompleto");
+      return toast.warning("Cpf incompleto ");
     }
 
     createDados({

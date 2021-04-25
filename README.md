@@ -61,6 +61,11 @@ tabela, uma requisição para o servidor é acionada, dessa forma
 incluindo o dado na tabela. Isso acontece com todas as ações.
 Os dados são vinculados com o usuário que o cadastrou e só ele pode atualizar e deletar aqueles dados
 
+No back-end eu estou usando o firebase com o Realtime Database para valvar os dados,
+para o login eu estou usando o provedor email/senha, optei por essas opções pois a Realtime Database já resolvia a parte de mostrar os dados na tabela assim que salvo e o provedor de email/senha e usei pois era o que tinha o fluxo de autenticação completo mas visível
+
+No front-end eu usei o useContext com escopo global, usei o reack-boostrap para o estilo e o react-input-mask para me ajudar com a máscara de input do cpf e idade, usei o react-tostify para me ajudar com as mensagens de erros e sucessos da aplicação.
+
 ## :rocket: Tecnologias
 
 As ferramentas que eu usei para construir esse projeto :

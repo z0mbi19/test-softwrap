@@ -29,7 +29,7 @@ export default function TableRow({ data }) {
 
     try {
       await db.update(update);
-      toast.success("Alterado");
+      toast.success("🎉 Alterado 🖋");
     } catch {}
   };
 
@@ -38,7 +38,7 @@ export default function TableRow({ data }) {
 
     try {
       await db.remove();
-      toast.success("Apagado");
+      toast.success("Apagado 💣 ");
     } catch {}
 
     console.log(data.id);
