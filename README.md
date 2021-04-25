@@ -53,7 +53,7 @@ redirecionado para uma tabela que seja possível as seguintes ações:
 - [x] Inserir conteúdo na tabela
 - [x] Editar o conteúdo da tabela.
 - [x] Remover conteúdo da tabela.
-- [] Paginar a tabela.
+- [ ] Paginar a tabela.
 - [x] Visualizar de forma clara os dados apresentados.
 
 Os dados são salvos no Realtime Database. Quando um é inserido na
