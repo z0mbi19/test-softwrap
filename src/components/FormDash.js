@@ -75,7 +75,7 @@ export default function FormDash({ currentUser }) {
                     mask="99"
                     className="form-control"
                     required
-                    type="text"
+                    type="tel"
                     value={idade}
                     onChange={(e) => {
                       setIdade(e.target.value);
@@ -105,7 +105,7 @@ export default function FormDash({ currentUser }) {
                     mask="999.999.999-99"
                     required
                     className="form-control"
-                    type="text"
+                    type="tel"
                     value={cpf}
                     onChange={(e) => {
                       setCpf(e.target.value);

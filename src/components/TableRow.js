@@ -63,6 +63,7 @@ export default function TableRow({ data }) {
         <ReactInputMask
           mask="99"
           className="form-control"
+          type="tel"
           value={idade}
           onChange={(e) => {
             setIdade(e.target.value);
@@ -82,6 +83,7 @@ export default function TableRow({ data }) {
         <ReactInputMask
           mask="999.999.999-99"
           className="form-control"
+          type="tel"
           value={cpf}
           onChange={(e) => {
             setCpf(e.target.value);
